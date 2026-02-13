@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Framer Template Refactorer - Staging</title>
+  <style>
+    :root {
+      /* MANDATORY NEUTRAL TOKENS (only hex allowed here) */
+      --bg: #ffffff;
+      --surface: #f3f4f6;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+
+      --font-sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+
+    /* Layout primitives */
+    .Section { padding: 80px 0; display: flex; flex-direction: column; align-items: center; width: 100%; }
+    .Container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 24px; display: flex; flex-direction: column; align-items: center; }
+
+    .StackV { display: flex; flex-direction: column; width: 100%; }
+    .StackH { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; }
+    .Grid { display: grid; width: 100%; }
+
+    /* Media */
+    .MediaFrame { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .MediaFrame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* Buttons (strict neutral) */
+    .Button { display: inline-flex; align-items: center; justify-content: center; padding: 12px 16px; border-radius: 999px; font-weight: 650; font-size: 18px; line-height: 1; text-decoration: none; cursor: pointer; }
+    .ButtonPrimary { background: var(--text); color: var(--bg); border: 1px solid var(--border); }
+    .ButtonSecondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+
+    /* Typography roles */
+    .Text { word-wrap: break-word; }
+    .H0 { font-size: 72px; line-height: 1.05; letter-spacing: -0.02em; font-weight: 650; }
+    .Body { font-size: 18px; line-height: 1.6; letter-spacing: 0em; font-weight: 450; }
+    .Small { font-size: 14px; line-height: 1.6; letter-spacing: 0em; font-weight: 450; }
+
+    /* Color roles */
+    .TextPrimary { color: var(--text); }
+    .TextMuted { color: var(--muted); }
+
+    /* Utility roles */
+    .TextCenter { text-align: center; }
+    .AlignCenter { align-items: center; }
+    .JustifyCenter { justify-content: center; }
+
+    /* Avatar helpers */
+    .AvatarRow { display: flex; flex-direction: row; align-items: center; }
+    .Avatar { width: 48px; height: 48px; border-radius: 999px; border: 3px solid var(--bg); background: var(--surface); object-fit: cover; margin-left: -16px; position: relative; z-index: 1; }
+    .Avatar:first-child { margin-left: 0; z-index: 10; }
+    .Avatar:nth-child(2) { z-index: 9; }
+    .Avatar:nth-child(3) { z-index: 8; }
+    .Avatar:nth-child(4) { z-index: 7; }
+    .Avatar:nth-child(5) { z-index: 6; }
+
+    .AvatarCount { width: 48px; height: 48px; border-radius: 999px; border: 3px solid var(--bg); background: var(--surface); display: flex; align-items: center; justify-content: center; margin-left: -16px; z-index: 0; font-size: 14px; font-weight: 650; color: var(--muted); }
+  </style>
+</head>
+
+<body>
+  <section class="Section SectionHero">
+    <div class="Container">
+      <div class="StackV AlignCenter" style="gap: 64px; width: 100%;">
+
+        <div class="StackV AlignCenter TextCenter" style="max-width: 800px; gap: 32px;">
+          <div class="StackV" style="gap: 24px;">
+            <h1 class="Text H0 TextPrimary">Build and Ship Your Website Faster</h1>
+            <p class="Text Body TextMuted">
+              Speed up your website build with our ultimate UI kits for Framer. Enjoy high-quality, customizable elements for a seamless, stunning user experience.
+            </p>
+          </div>
+
+          <div class="StackH JustifyCenter" style="gap: 16px;">
+            <a href="#" class="Button ButtonPrimary">Get it now →</a>
+            <a href="#" class="Button ButtonSecondary">Learn more</a>
+          </div>
+        </div>
+
+        <div class="StackH JustifyCenter" style="gap: 24px;">
+          <div class="AvatarRow">
+            <img src="https://framerusercontent.com/images/KpkqmmPib5RCYXU7McHKingNvg.jpeg?scale-down-to=512" class="Avatar" alt="User 1">
+            <img src="https://framerusercontent.com/images/B63svdJMpER8G3bfmcvohfTbD2Q.jpeg?scale-down-to=512" class="Avatar" alt="User 2">
+            <img src="https://framerusercontent.com/images/CYpa2bIq6fcE2zBGng9ZNGXrvnQ.jpeg?scale-down-to=512" class="Avatar" alt="User 3">
+            <img src="https://framerusercontent.com/images/cLsyTaR6USmTc5lOGbuUDJRpTOw.jpeg?scale-down-to=512" class="Avatar" alt="User 4">
+            <img src="https://framerusercontent.com/images/sv6BYy71BzCYD6BlJPGCGii56M.jpeg?scale-down-to=512" class="Avatar" alt="User 5">
+            <div class="AvatarCount">+5</div>
+          </div>
+
+          <div class="StackV" style="gap: 4px; align-items: flex-start; width: auto;">
+            <p class="Text Small TextMuted">★★★★★</p>
+            <p class="Text Small TextMuted">1,000+ customers joined</p>
+          </div>
+        </div>
+
+        <div class="Grid" style="grid-template-columns: repeat(4, 1fr); gap: 24px;">
+          <div class="MediaFrame" style="aspect-ratio: 3/4;"><img src="https://framerusercontent.com/images/Losmg7YWtxaRWURIknAG61Fl37s.jpg?scale-down-to=1024" alt="Showcase 1"></div>
+          <div class="MediaFrame" style="aspect-ratio: 3/4;"><img src="https://framerusercontent.com/images/iG7bFXlE1fByzn25qTNNGuga6Go.jpg?scale-down-to=1024" alt="Showcase 2"></div>
+          <div class="MediaFrame" style="aspect-ratio: 3/4;"><img src="https://framerusercontent.com/images/WfZwNspjrICZSIGDKwHWqNdnmk.jpg?scale-down-to=1024" alt="Showcase 3"></div>
+          <div class="MediaFrame" style="aspect-ratio: 3/4;"><img src="https://framerusercontent.com/images/iSccYeqZgzSuGZA05ID415tg.jpg?scale-down-to=1024" alt="Showcase 4"></div>
+          <div class="MediaFrame" style="aspect-ratio: 3/4;"><img src="https://framerusercontent.com/images/NOE9sYgTskqOpm05Nab4VhIWCA.jpg?scale-down-to=1024" alt="Showcase 5"></div>
+          <div class="MediaFrame" style="aspect-ratio: 3/4;"><img src="https://framerusercontent.com/images/AAgtaeqaT2DCA1tfE7AaLwiKvTk.jpg?scale-down-to=1024" alt="Showcase 6"></div>
+          <div class="MediaFrame" style="aspect-ratio: 3/4;"><img src="https://framerusercontent.com/images/psZwfs8AeLrbTtHECDGwhd6rx0.jpg?scale-down-to=1024" alt="Showcase 7"></div>
+          <div class="MediaFrame" style="aspect-ratio: 3/4;"><img src="https://framerusercontent.com/images/MUKMullc3RpovcMHfY2iLUrJ3s.jpg" alt="Showcase 8"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

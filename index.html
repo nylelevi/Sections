@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Framer Template Refactorer - Staging</title>
+  <title>Framer Template Refactorer - Staging (Framer-friendly)</title>
+
   <style>
     :root {
       /* MANDATORY NEUTRAL TOKENS (only hex allowed here) */
@@ -20,13 +21,16 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--bg); color: var(--text); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
 
-    /* Layout primitives */
-    .Section { padding: 80px 0; display: flex; flex-direction: column; align-items: center; width: 100%; }
+    /* Layout primitives (Framer-friendly) */
+    .Section { width: 100%; padding: 80px 0; display: flex; flex-direction: column; align-items: center; }
     .Container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 24px; display: flex; flex-direction: column; align-items: center; }
 
-    .StackV { display: flex; flex-direction: column; width: 100%; }
-    .StackH { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; }
-    .Grid { display: grid; width: 100%; }
+    .StackV { width: 100%; display: flex; flex-direction: column; }
+    .StackH { width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; }
+
+    /* Framer import tip: prefer flex-wrap rows over CSS grid */
+    .RowWrap { width: 100%; display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
+    .Col4 { flex: 1 1 calc(25% - 18px); width: calc(25% - 18px); min-width: 220px; }
 
     /* Media */
     .MediaFrame { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
@@ -68,9 +72,11 @@
 <body>
   <section class="Section SectionHero">
     <div class="Container">
-      <div class="StackV AlignCenter" style="gap: 64px; width: 100%;">
 
-        <div class="StackV AlignCenter TextCenter" style="max-width: 800px; gap: 32px;">
+      <div class="StackV AlignCenter" style="gap: 64px;">
+
+        <!-- HERO CONTENT -->
+        <div class="StackV AlignCenter TextCenter" style="width: 100%; max-width: 800px; gap: 32px;">
           <div class="StackV" style="gap: 24px;">
             <h1 class="Text H0 TextPrimary">Build and Ship Your Website Faster</h1>
             <p class="Text Body TextMuted">
@@ -84,6 +90,7 @@
           </div>
         </div>
 
+        <!-- SOCIAL PROOF -->
         <div class="StackH JustifyCenter" style="gap: 24px;">
           <div class="AvatarRow">
             <img src="https://framerusercontent.com/images/KpkqmmPib5RCYXU7McHKingNvg.jpeg?scale-down-to=512" class="Avatar" alt="User 1">
@@ -100,15 +107,57 @@
           </div>
         </div>
 
-        <div class="Grid" style="grid-template-columns: repeat(4, 1fr); gap: 24px;">
-          <div class="MediaFrame" style="aspect-ratio: 3/4;"><img src="https://framerusercontent.com/images/Losmg7YWtxaRWURIknAG61Fl37s.jpg?scale-down-to=1024" alt="Showcase 1"></div>
-          <div class="MediaFrame" style="aspect-ratio: 3/4;"><img src="https://framerusercontent.com/images/iG7bFXlE1fByzn25qTNNGuga6Go.jpg?scale-down-to=1024" alt="Showcase 2"></div>
-          <div class="MediaFrame" style="aspect-ratio: 3/4;"><img src="https://framerusercontent.com/images/WfZwNspjrICZSIGDKwHWqNdnmk.jpg?scale-down-to=1024" alt="Showcase 3"></div>
-          <div class="MediaFrame" style="aspect-ratio: 3/4;"><img src="https://framerusercontent.com/images/iSccYeqZgzSuGZA05ID415tg.jpg?scale-down-to=1024" alt="Showcase 4"></div>
-          <div class="MediaFrame" style="aspect-ratio: 3/4;"><img src="https://framerusercontent.com/images/NOE9sYgTskqOpm05Nab4VhIWCA.jpg?scale-down-to=1024" alt="Showcase 5"></div>
-          <div class="MediaFrame" style="aspect-ratio: 3/4;"><img src="https://framerusercontent.com/images/AAgtaeqaT2DCA1tfE7AaLwiKvTk.jpg?scale-down-to=1024" alt="Showcase 6"></div>
-          <div class="MediaFrame" style="aspect-ratio: 3/4;"><img src="https://framerusercontent.com/images/psZwfs8AeLrbTtHECDGwhd6rx0.jpg?scale-down-to=1024" alt="Showcase 7"></div>
-          <div class="MediaFrame" style="aspect-ratio: 3/4;"><img src="https://framerusercontent.com/images/MUKMullc3RpovcMHfY2iLUrJ3s.jpg" alt="Showcase 8"></div>
+        <!-- GALLERY (Framer-friendly flex-wrap row) -->
+        <div class="RowWrap">
+
+          <div class="Col4">
+            <div class="MediaFrame" style="aspect-ratio: 3/4;">
+              <img src="https://framerusercontent.com/images/Losmg7YWtxaRWURIknAG61Fl37s.jpg?scale-down-to=1024" alt="Showcase 1">
+            </div>
+          </div>
+
+          <div class="Col4">
+            <div class="MediaFrame" style="aspect-ratio: 3/4;">
+              <img src="https://framerusercontent.com/images/iG7bFXlE1fByzn25qTNNGuga6Go.jpg?scale-down-to=1024" alt="Showcase 2">
+            </div>
+          </div>
+
+          <div class="Col4">
+            <div class="MediaFrame" style="aspect-ratio: 3/4;">
+              <img src="https://framerusercontent.com/images/WfZwNspjrICZSIGDKwHWqNdnmk.jpg?scale-down-to=1024" alt="Showcase 3">
+            </div>
+          </div>
+
+          <div class="Col4">
+            <div class="MediaFrame" style="aspect-ratio: 3/4;">
+              <img src="https://framerusercontent.com/images/iSccYeqZgzSuGZA05ID415tg.jpg?scale-down-to=1024" alt="Showcase 4">
+            </div>
+          </div>
+
+          <div class="Col4">
+            <div class="MediaFrame" style="aspect-ratio: 3/4;">
+              <img src="https://framerusercontent.com/images/NOE9sYgTskqOpm05Nab4VhIWCA.jpg?scale-down-to=1024" alt="Showcase 5">
+            </div>
+          </div>
+
+          <div class="Col4">
+            <div class="MediaFrame" style="aspect-ratio: 3/4;">
+              <img src="https://framerusercontent.com/images/AAgtaeqaT2DCA1tfE7AaLwiKvTk.jpg?scale-down-to=1024" alt="Showcase 6">
+            </div>
+          </div>
+
+          <div class="Col4">
+            <div class="MediaFrame" style="aspect-ratio: 3/4;">
+              <img src="https://framerusercontent.com/images/psZwfs8AeLrbTtHECDGwhd6rx0.jpg?scale-down-to=1024" alt="Showcase 7">
+            </div>
+          </div>
+
+          <div class="Col4">
+            <div class="MediaFrame" style="aspect-ratio: 3/4;">
+              <img src="https://framerusercontent.com/images/MUKMullc3RpovcMHfY2iLUrJ3s.jpg" alt="Showcase 8">
+            </div>
+          </div>
+
         </div>
 
       </div>
